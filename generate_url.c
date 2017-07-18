@@ -4,9 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define URL "www.sina.com/"
-#define URL_LEN 256
-#define STR_LEN (URL_LEN - strlen(URL))
+#define URL_LEN 256 /* URL最大长度  */
+#define STR_LEN_MAX 20  /* 产生随机字符串的最大长度 */
+#define STR_LEN_MIN 5  /* 产生随机字符串的最小长度 */
 
 
 /* get_rand_str 函数根据传入的参数将 str_len 长度的随机字符串拼接到 url 后面
@@ -37,12 +37,17 @@ void generate_one_url(char *url, unsigned int seed)
     int str_len = 0;
 
     /* Init */
-    sprintf(url, URL);
     srand(seed);
+    sprintf(url, "wwww.");
     
     /* 产生[a-b)之间的数，则 (rand() % (a-b)) + b*/
     /* 这里保证了生成字符串长度不至于过小 */
-    str_len = (rand() % (STR_LEN - 5)) + 5;
+    str_len = (rand() % (STR_LEN_MAX - STR_LEN_MIN)) + STR_LEN_MIN;
+    get_rand_str(url, str_len, seed); /* 获得随机字符串并拼接到url后面 */
+
+    strcat(url, ".com/");
+
+    str_len = (rand() % (STR_LEN_MAX - STR_LEN_MIN)) + STR_LEN_MIN;
     get_rand_str(url, str_len, seed); /* 获得随机字符串并拼接到url后面 */
 }
 
@@ -56,7 +61,6 @@ void write_file(const char* filename, const int n)
     fp = fopen(filename, "w+");
 
     for(i = 1; i <= n; i++) {
-        //memset(url, 0, sizeof(url));
         generate_one_url(url, (unsigned int)i);
         fprintf(fp, "%s\n", url);
     }
@@ -64,6 +68,8 @@ void write_file(const char* filename, const int n)
     if(fclose(fp) != 0)
         printf("Error in closing file\n");
 }
+
+
 
 int main(int argc, const char* argv[])
 {
