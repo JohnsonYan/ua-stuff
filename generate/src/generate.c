@@ -91,7 +91,7 @@ void create_url_file(const char* filename, const int n)
     FILE *fp;
     
     if((fp = fopen(filename, "w+")) == NULL) {
-        fprintf(stderr, "Error in opening file: %s\n", filename);
+        perror(filename);
         exit(1);
     }
 
@@ -101,7 +101,7 @@ void create_url_file(const char* filename, const int n)
     }
     
     if(fclose(fp) != 0) {
-        fprintf(stderr, "Error in closing file: %s\n", filename);
+        perror(filename);
     }
 }
 
@@ -113,7 +113,7 @@ void create_keyword_file(const char* filename, const int n)
     FILE *fp;
     
     if((fp = fopen(filename, "w+")) == NULL) {
-        fprintf(stderr, "Error in opening file: %s\n", filename);
+        perror(filename);
         exit(1);
     }
 
@@ -124,10 +124,8 @@ void create_keyword_file(const char* filename, const int n)
     }
     
     if(fclose(fp) != 0) {
-        fprintf(stderr, "Error in closing file: %s\n", filename);
+        perror(filename);
     }
-
-
 }
 
 
@@ -150,6 +148,5 @@ int main(int argc, const char* argv[])
     else {
         fprintf(stdout, "can't find the option you input, try again.\n");
     }
-
  	return 0;
 }
