@@ -1,5 +1,5 @@
-pcre: test1.o
-	cc -o pcre test1.o -lpcre
+pcre: pcre.o
+	cc -o pcre pcre.o -lpcre
 
 
 .PHONY: clean, run
