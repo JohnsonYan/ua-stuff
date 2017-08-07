@@ -1,0 +1,8 @@
+测试spinlock和mutex的性能
+
+#compile
+make spin_version
+make mutex_version
+# run
+time ./spin_version
+time ./mutex_version

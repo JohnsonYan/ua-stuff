@@ -26,7 +26,65 @@
                     "(?:\\s+\\((.*)?(?:\\s*)\\))?(?:(?:\\s*)\\n)?\\s*$"
 #define OPTION_PARTS 3
 #define OPTION_PCRE "^\\s*([A-z_0-9-\\.]+)(?:\\s*\\:\\s*(.*)(?<!\\\\))?\\s*;\\s*(?:\\s*(.*))?\\s*$"
-
+// byte_jump
+#define PARSE_REGEX_BYTE_JUMP  "^\\s*" \
+                     "([^\\s,]+\\s*,\\s*[^\\s,]+)" \
+                     "(?:\\s*,\\s*((?:multiplier|post_offset)\\s+[^\\s,]+|[^\\s,]+))?" \
+                     "(?:\\s*,\\s*((?:multiplier|post_offset)\\s+[^\\s,]+|[^\\s,]+))?" \
+                     "(?:\\s*,\\s*((?:multiplier|post_offset)\\s+[^\\s,]+|[^\\s,]+))?" \
+                     "(?:\\s*,\\s*((?:multiplier|post_offset)\\s+[^\\s,]+|[^\\s,]+))?" \
+                     "(?:\\s*,\\s*((?:multiplier|post_offset)\\s+[^\\s,]+|[^\\s,]+))?" \
+                     "(?:\\s*,\\s*((?:multiplier|post_offset)\\s+[^\\s,]+|[^\\s,]+))?" \
+                     "(?:\\s*,\\s*((?:multiplier|post_offset)\\s+[^\\s,]+|[^\\s,]+))?" \
+                     "(?:\\s*,\\s*((?:multiplier|post_offset)\\s+[^\\s,]+|[^\\s,]+))?" \
+                     "(?:\\s*,\\s*((?:multiplier|post_offset)\\s+[^\\s,]+|[^\\s,]+))?" \
+                     "\\s*$"
+// byte_extract
+#define PARSE_REGEX_BYTE_EXTRACT "^"                                                  \
+    "\\s*([0-9]+)\\s*"                                                   \
+    ",\\s*(-?[0-9]+)\\s*"                                               \
+    ",\\s*([^\\s,]+)\\s*"                                                \
+    "(?:(?:,\\s*([^\\s,]+)\\s*)|(?:,\\s*([^\\s,]+)\\s+([^\\s,]+)\\s*))?" \
+    "(?:(?:,\\s*([^\\s,]+)\\s*)|(?:,\\s*([^\\s,]+)\\s+([^\\s,]+)\\s*))?" \
+    "(?:(?:,\\s*([^\\s,]+)\\s*)|(?:,\\s*([^\\s,]+)\\s+([^\\s,]+)\\s*))?" \
+    "(?:(?:,\\s*([^\\s,]+)\\s*)|(?:,\\s*([^\\s,]+)\\s+([^\\s,]+)\\s*))?" \
+    "(?:(?:,\\s*([^\\s,]+)\\s*)|(?:,\\s*([^\\s,]+)\\s+([^\\s,]+)\\s*))?" \
+    "$"
+// byte_test
+#define PARSE_REGEX_BYTE_TEST  "^\\s*" \
+                     "([^\\s,]+)" \
+                     "\\s*,\\s*(\\!?)\\s*([^\\s,]*)" \
+                     "\\s*,\\s*([^\\s,]+)" \
+                     "\\s*,\\s*([^\\s,]+)" \
+                     "(?:\\s*,\\s*([^\\s,]+))?" \
+                     "(?:\\s*,\\s*([^\\s,]+))?" \
+                     "(?:\\s*,\\s*([^\\s,]+))?" \
+                     "(?:\\s*,\\s*([^\\s,]+))?" \
+                     "(?:\\s*,\\s*([^\\s,]+))?" \
+                     "\\s*$"
+// filestore
+#define PARSE_REGEX_FILESTORE  "^\\s*([A-z_]+)\\s*(?:,\\s*([A-z_]+))?\\s*(?:,\\s*([A-z_]+))?\\s*$"
+// flags
+#define PARSE_REGEX_FLAGS "^\\s*(?:([\\+\\*!]))?\\s*([SAPRFU120CE\\+\\*!]+)(?:\\s*,\\s*([SAPRFU12CE]+))?\\s*$"
+// pcre
+#define PARSE_CAPTURE_REGEX "\\(\\?P\\<([A-z]+)\\_([A-z0-9_]+)\\>"
+#define PARSE_REGEX         "(?<!\\\\)/(.*(?<!(?<!\\\\)\\\\))/([^\"]*)"
+// ssl_state
+#define PARSE_REGEX1 "^\\s*(!?)([_a-zA-Z0-9]+)(.*)$"
+#define PARSE_REGEX2 "^(?:\\s*[|,]\\s*(!?)([_a-zA-Z0-9]+))(.*)$"
+// modbus
+/**
+ *  * \brief Regex for parsing the Modbus function string
+ *   */
+#define PARSE_REGEX_FUNCTION "^\\s*\"?\\s*function\\s*(!?[A-z0-9]+)(,\\s*subfunction\\s+(\\d+))?\\s*\"?\\s*$"
+/**
+ *  * \brief Regex for parsing the Modbus access string
+ *   */
+#define PARSE_REGEX_ACCESS "^\\s*\"?\\s*access\\s*(read|write)\\s*(discretes|coils|input|holding)?(,\\s*address\\s+([<>]?\\d+)(<>\\d+)?(,\\s*value\\s+([<>]?\\d+)(<>\\d+)?)?)?\\s*\"?\\s*$"
+// classtype
+#define DETECT_CLASSCONFIG_REGEX "^\\s*config\\s*classification\\s*:\\s*([a-zA-Z][a-zA-Z0-9-_]*)\\s*,\\s*(.+)\\s*,\\s*(\\d+)\\s*$"
+// reference-util
+#define SC_RCONF_REGEX "^\\s*config\\s+reference\\s*:\\s*([a-zA-Z][a-zA-Z0-9-_]*)\\s+(.+)\\s*$"
 
 int match(char *src, const char *pattern)
 {
@@ -81,6 +139,20 @@ int main()
     //match("bytes 1", "\\s*(bytes\\s+(\\d+),?)?"); // match bytes 1
     //match("offset 2", "\\s*(offset\\s+(\\d+),?)?"); // match offset 2
     //match("relative", "\\s*(\\w+)?"); // match relative
-    match("f4.5.55n", ".*?(\\d+)(\\.(\\d+))?");
+    //match("421441515.5124515", ".*?(\\d+)(\\.(\\d+))?");
+    //match(" 4,0 , relative , little, string, dec, align, from_beginning , multiplier 2 , post_offset -16", PARSE_REGEX_BYTE_JUMP);
+    //match("4, 2, one,  ralign 4, relative, little, multiplier 2, string hex", PARSE_REGEX_BYTE_EXTRACT);
+    //match("4, >, 1, 0, string, hex", PARSE_REGEX_BYTE_TEST);
+    //match("to_server , file, tx", PARSE_REGEX_FILESTORE);
+    //match("!SAPRFU120, 12", PARSE_REGEX_FLAGS);
+    //match("\"/User[-_]Agent[:]?\\sMozilla/H\"", PARSE_CAPTURE_REGEX);
+    //match("\"/User[-_]Agent[:]?\\sMozilla/H\"", PARSE_REGEX);
+    //match("server_hello, client_hello", PARSE_REGEX1);
+    //match("|jfkaljflk", PARSE_REGEX2);
+    //match("function 8, subfunction 4", PARSE_REGEX_FUNCTION);
+    //match("access write, address 1500<>2000, value >2000", PARSE_REGEX_ACCESS);
+    //match("config classification: not-suspicious,Not Suspicious Traffic,3\n", DETECT_CLASSCONFIG_REGEX);
+    //match("config reference:aliyun www.taobao.com", SC_RCONF_REGEX);
+    match("0479-4284991", "^0[0-9]{2,3}-[0-9]{7,8}$");
     return 0;
 }
