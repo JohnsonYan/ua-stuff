@@ -1,0 +1,195 @@
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2017-08-06 19:45 PDT
+Nmap scan report for ACAB3219.ipt.aol.com (172.171.50.25)
+Host is up (0.00061s latency).
+Not shown: 996 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+3306/tcp open  mysql
+8000/tcp open  http-alt
+MAC Address: 00:0A:F7:4D:44:3A (Broadcom)
+
+Nmap scan report for ACAB323C.ipt.aol.com (172.171.50.60)
+Host is up (0.0010s latency).
+All 1000 scanned ports on ACAB323C.ipt.aol.com (172.171.50.60) are closed
+MAC Address: 78:A3:51:08:CF:D5 (Unknown)
+
+Nmap scan report for ACAB325A.ipt.aol.com (172.171.50.90)
+Host is up (0.00056s latency).
+Not shown: 998 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+111/tcp open  rpcbind
+MAC Address: 4C:CC:6A:20:4C:40 (Unknown)
+
+Nmap scan report for ACAB325C.ipt.aol.com (172.171.50.92)
+Host is up (0.00058s latency).
+Not shown: 993 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+1234/tcp open  hotline
+3306/tcp open  mysql
+4000/tcp open  remoteanything
+8009/tcp open  ajp13
+8080/tcp open  http-proxy
+MAC Address: 00:60:E0:5A:BF:F6 (Axiom Technology CO.)
+
+Nmap scan report for ACAB325D.ipt.aol.com (172.171.50.93)
+Host is up (0.00076s latency).
+Not shown: 996 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+1122/tcp open  availant-mgr
+1234/tcp open  hotline
+MAC Address: 00:90:0B:53:CF:1B (Lanner Electronics)
+
+Nmap scan report for ACAB3260.ipt.aol.com (172.171.50.96)
+Host is up (0.00060s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+3306/tcp open  mysql
+MAC Address: 00:90:0B:53:CF:23 (Lanner Electronics)
+
+Nmap scan report for ACAB3261.ipt.aol.com (172.171.50.97)
+Host is up (0.00093s latency).
+Not shown: 999 filtered ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: AC:1F:6B:12:6F:BC (Unknown)
+
+Nmap scan report for ACAB3263.ipt.aol.com (172.171.50.99)
+Host is up (0.00089s latency).
+Not shown: 999 filtered ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 4C:CC:6A:20:4C:4D (Unknown)
+
+Nmap scan report for ACAB3266.ipt.aol.com (172.171.50.102)
+Host is up (0.00058s latency).
+Not shown: 993 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+1234/tcp open  hotline
+3306/tcp open  mysql
+4000/tcp open  remoteanything
+8009/tcp open  ajp13
+8080/tcp open  http-proxy
+MAC Address: 38:D5:47:00:6C:75 (Unknown)
+
+Nmap scan report for ACAB3272.ipt.aol.com (172.171.50.114)
+Host is up (0.00064s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+3306/tcp open  mysql
+MAC Address: 00:E0:81:E8:0D:D8 (Tyan Computer)
+
+Nmap scan report for ACAB328D.ipt.aol.com (172.171.50.141)
+Host is up (0.0015s latency).
+Not shown: 977 closed ports
+PORT      STATE    SERVICE
+21/tcp    open     ftp
+22/tcp    open     ssh
+23/tcp    open     telnet
+80/tcp    open     http
+111/tcp   open     rpcbind
+513/tcp   open     login
+514/tcp   open     shell
+1666/tcp  open     netview-aix-6
+2222/tcp  open     EtherNet/IP-1
+2323/tcp  open     3d-nfsd
+49152/tcp filtered unknown
+49153/tcp open     unknown
+49154/tcp open     unknown
+49155/tcp open     unknown
+49156/tcp open     unknown
+49157/tcp filtered unknown
+49158/tcp filtered unknown
+49159/tcp filtered unknown
+49160/tcp filtered unknown
+49161/tcp filtered unknown
+49163/tcp filtered unknown
+51103/tcp filtered unknown
+51493/tcp filtered unknown
+MAC Address: 00:60:F3:22:E4:5A (Performance Analysis Broadband, Spirent plc)
+
+Nmap scan report for ACAB32A0.ipt.aol.com (172.171.50.160)
+Host is up (0.00059s latency).
+Not shown: 992 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+1234/tcp open  hotline
+3306/tcp open  mysql
+4000/tcp open  remoteanything
+8009/tcp open  ajp13
+8080/tcp open  http-proxy
+MAC Address: D8:CB:8A:A5:59:50 (Unknown)
+
+Nmap scan report for ACAB32A2.ipt.aol.com (172.171.50.162)
+Host is up (0.00055s latency).
+Not shown: 988 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+1234/tcp open  hotline
+3306/tcp open  mysql
+4000/tcp open  remoteanything
+5555/tcp open  freeciv
+6666/tcp open  irc
+6667/tcp open  irc
+6668/tcp open  irc
+6669/tcp open  irc
+8009/tcp open  ajp13
+8080/tcp open  http-proxy
+MAC Address: 4C:CC:6A:20:4C:47 (Unknown)
+
+Nmap scan report for ACAB32C8.ipt.aol.com (172.171.50.200)
+Host is up (0.00091s latency).
+Not shown: 999 filtered ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 00:90:27:E0:AD:4D (Intel)
+
+Nmap scan report for ACAB32E6.ipt.aol.com (172.171.50.230)
+Host is up (0.0015s latency).
+Not shown: 994 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+111/tcp  open  rpcbind
+1234/tcp open  hotline
+3306/tcp open  mysql
+8009/tcp open  ajp13
+8080/tcp open  http-proxy
+MAC Address: E8:4D:D0:BB:63:FC (Unknown)
+
+Nmap scan report for ACAB32EF.ipt.aol.com (172.171.50.239)
+Host is up (0.00062s latency).
+Not shown: 985 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+843/tcp  open  unknown
+1025/tcp open  NFS-or-IIS
+1026/tcp open  LSA-or-nterm
+1027/tcp open  IIS
+1028/tcp open  unknown
+1030/tcp open  iad1
+1031/tcp open  iad2
+3306/tcp open  mysql
+3389/tcp open  ms-wbt-server
+5080/tcp open  onscreen
+9091/tcp open  xmltec-xmlmail
+MAC Address: 00:0A:F7:2B:52:05 (Broadcom)
+
+Nmap done: 256 IP addresses (16 hosts up) scanned in 43.61 seconds
