@@ -24,18 +24,17 @@ void processPacket(u_char *arg, const struct pcap_pkthdr *pkthdr, const u_char *
     return;
 }
 
-int main()
+char * getDevice(char *device)
 {
-    int i = 0, count = 0;
-    pcap_t *descr = NULL;
+    int i = 0;
     pcap_if_t *alldevsp, *d;
-    char errbuf[PCAP_ERRBUF_SIZE], *devbuf[20]; // devbuf 存储所有可供选择的网卡名称
-    memset(errbuf, 0, PCAP_ERRBUF_SIZE);
+    char errbuf[PCAP_ERRBUF_SIZE];
+    char *devbuf[20]; // devbuf 存储所有可供选择的网卡名称
 
     // Get the name of the first device suitable for capture
     if (0 != pcap_findalldevs(&alldevsp, errbuf)) {
         printf("Error in findalldevs\n");
-        return 1;
+        return NULL;
     }
 
     /* list the devs list, choose one
@@ -48,11 +47,24 @@ int main()
     }
 
     scanf("%d", &i);
+    device = devbuf[i];
 
-    printf("Opening device %s\n", devbuf[i]);
+    return device;
+}
+
+int main()
+{
+    int i = 0, count = 0;
+    pcap_t *descr = NULL;
+    char errbuf[PCAP_ERRBUF_SIZE], *device;
+    memset(errbuf, 0, PCAP_ERRBUF_SIZE);
+
+    // get a device name
+    device = getDevice(device);
 
     // Open device
-    descr = pcap_open_live(devbuf[i], MAXBYTES2CAPTURE, 10, 512, errbuf);
+    printf("Opening device %s\n", device);
+    descr = pcap_open_live(device, MAXBYTES2CAPTURE, 10, 512, errbuf);
 
     // Loop forever & call processPacket() for every received packet
     pcap_loop(descr, -1, processPacket, (u_char *)&count);
