@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     while (1) {
         if ((packet = pcap_next(descr, &pkthdr)) == NULL)
             continue; // 出现错误或者没抓到包，返回NULL, 那就跳过这次循环, 防止出现空指针 
-        arpheader = (struct arphdr *)(packet+14); // point to the arp header
+        arpheader = (struct arphdr *)(packet+14); // point to the arp header,前面14bytes是以太网首部
 
         printf("\n\nReceived Packet Size: %d bytes\n", pkthdr.len);
         
