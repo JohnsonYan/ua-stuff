@@ -1,0 +1,77 @@
+Unix,Unix,0
+FreeBSD,FreeBSD,0
+OpenBSD,OpenBSD,0
+NetBSD,NetBSD,0
+SunOS,Solaris,0
+Linux,Linux,0
+CentOS,CentOS,0
+Debian,Debian,0
+Fedora,Fedora,0
+Gentoo,Gentoo,0
+Kubuntu,Kubuntu,0
+Mandriva Linux,Mandriva,0
+Mageia,Mageia,0
+Red Hat,Red Hat,0
+Slackware,Slackware,0
+SUSE,SUSE,0
+Turbolinux,Turbolinux,0
+Ubuntu,Ubuntu,0
+iPhone;,iOS,0
+iPad;,iOS,0
+iPod;,iOS,0
+iPhone Simulator;,iOS,0
+Mac OS X,Mac OS X,0
+Windows NT 6.4,Windows 10,0
+Windows NT 6.3,Windows 8.1,0
+Windows NT 6.2,Windows 8,0
+Windows NT 6.1,Windows 7,0
+Windows NT 6.0,Windows Vista,0
+Windows NT 5.2,Windows Server 2003,0
+Windows NT 5.1,Windows XP,0
+Windows NT 5.0,Windows 2000,0
+Windows 95,Windows 95,0
+Win95,Windows 95,0
+Win 9x 4.00,Windows 95,0
+Windows 98,Windows 98,0
+Win98,Windows 98,0
+Win 9x 4.10,Windows 98,0
+Windows ME,Windows ME,0
+WinME,Windows ME,0
+Win 9x 4.90,Windows ME,0
+WP7,Windows Phone,0
+Windows CE,Windows Mobile,0
+WinCE,Windows Mobile,0
+WindowsCE,Windows Mobile,0
+Windows Phone,Windows Mobile,0
+Android,Android,0
+GoogleTV,Google TV,0
+WoPhone,WoPhone,0
+BlackBerry,BlackBerry OS,0
+RIM Tablet OS,BlackBerry Tablet OS,0
+PlayBook,BlackBerry,0
+webOS,webOS,0
+hpwOS,webOS,0
+Symbian,Series60,0
+S60,Series60,0
+Series40,Series40,0
+MeeGo,MeeGo,0
+Maemo,Maemo,0
+Tizen,Tizen,0
+bada,Bada,0
+Bada,Bada,0
+BMP; U,Brew,0
+BREW,Brew,0
+(MTK;),MTK,0
+CrOS,Chrome OS,0
+Joli OS,Joli OS,0
+Haiku,Haiku,0
+QNX,QNX,0
+OS/2; Warp,OS/2 Warp,0
+Grid OS,Grid OS,0
+AmigaOS,AmigaOS,0
+MorphOS,MorphOS,0
+nook browser,Android,0
+Iris,Windows Mobile,0
+Ninesky,Android,0
+Skyfire,Android,0
+Midori,Linux,0
