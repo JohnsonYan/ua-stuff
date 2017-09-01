@@ -26,7 +26,7 @@
 #define DEVICE_GAMING 6
 #define DEVICE_MEDIA 7
 
-#define UA_OS_CFG "ua-os.cfg"				
+#define UA_OS_CFG "ua-os.cfg"
 #define UA_DEVICE_CFG "ua-device.cfg"
 #define UA_BROWSER_CFG "ua-browser.cfg"
 
@@ -42,7 +42,7 @@ typedef struct _os_device_browser
 	struct _os_device_browser *next;
 }OS_DEVICE_BROWSER;
 
-//TODO 检查malloc申请成功与否
+
 OS_DEVICE_BROWSER  *init_os_device_browser()
 {
 	FILE *fp = NULL;
@@ -58,7 +58,7 @@ OS_DEVICE_BROWSER  *init_os_device_browser()
 		}
 		char key[256];
 		char value[256];
-		
+
 
 		while(fgets(line, 256, fp) != NULL) {
 			// 初始化一个链表节点,指向头结点head
@@ -226,7 +226,7 @@ OS_DEVICE_BROWSER  *init_os_device_browser()
 			fprintf(stderr, "Couldn't close the file %s\n", UA_OS_CFG);
 		}
 	}
-	
+
 	return head;
 }
 
@@ -242,7 +242,7 @@ int  free_os_device_browser(OS_DEVICE_BROWSER *head)
 		list = list->next;
 		free(deleted);
 	}
-	
+
 	return 0;
 }
 
@@ -258,6 +258,6 @@ int main()
 	}
 
 	free_os_device_browser(head);
-	
+
 	return 0;
 }

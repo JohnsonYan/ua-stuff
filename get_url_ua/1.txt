@@ -1,0 +1,34 @@
+GET /helloworld/jfal/?a=42&bajl=1 HTTP/1.1
+Host: www.sina.com.cn
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+Accept-Charset: utf-8
+Accept-Datetime: Sat, 26 Dec 2015 17:30:00 GMT
+Authorization: Basic OSdjJGRpbjpvcGVuIANlc2SdDE==
+Cache-Control: no-cache
+Content-Length: 348
+Content-Type: application/x-www-form-urlencoded
+Date: Dec, 26 Dec 2015 17:30:00 GMT
+Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==
+Expect: 100-continue
+From: user@itbilu.com
+If-Match: "9jd00cdj34pss9ejqiw39d82f20d0ikd"
+If-Modified-Since: Dec, 26 Dec 2015 17:30:00 GMT
+If-None-Match: "9jd00cdj34pss9ejqiw39d82f20d0ikd"
+If-Range: "9jd00cdj34pss9ejqiw39d82f20d0ikd"
+If-Unmodified-Since: Dec, 26 Dec 2015 17:30:00 GMT
+Max-Forwards: 10
+Origin: http://www.itbilu.com
+Pragma: no-cache
+Proxy-Authorization: Basic IOoDZRgDOi0vcGVuIHNlNidJi2==
+Range: bytes=500-999
+Referer: http://itbilu.com/nodejs
+TE: trailers,deflate
+Upgrade: HTTP/2.0, SHTTP/1.3, IRC/6.9, RTA/x11
+Via: 1.0 fred, 1.1 itbilu.com.com (Apache/1.1)
+Warning: 199 Miscellaneous warning
+Cookie: SINAGLOBAL=218.2.108.2_1501749073.642065; U_TRS1=0000000e.131e38a7.598c2929.c33a5fa4; UOR=www.google.com.hk,blog.sina.com.cn,; ULV=1503279096084:5:5:1::1502847638005
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
