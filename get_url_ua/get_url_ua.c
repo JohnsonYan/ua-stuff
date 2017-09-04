@@ -15,47 +15,37 @@
 
 
 int get_url_useragent(UINT8 *l5, UINT16 l5_len, UINT8 **user_agent, UINT16 *useragent_len, UINT8 *url, UINT8 url_len)
-{
-    UINT8 *dup = strndup(l5, l5_len);   // 在内存中创建一个副本
+{  
+    UINT8 *token1, *token2; // 解析用的中间变量
+    UINT8 host_len, path_len, *ua, *host, *path;
+
+    // 解析User-Agent
+    token1 = strstr(l5, "User-Agent:");
+    token2 = strstr(token1, "\r\n");
+    ua = strstr(token1, " ");
+    while(*ua == 32) ua++;    // 去掉多余空格
+    *user_agent = ua;
+    *useragent_len = token2 - ua;
     
-    UINT8 *header = (UINT8 *)dup; // 避免在字符串切割时破坏pkt本身的数据
-    UINT8 *token; // 用于保存每一行数据的指针
-    UINT8 *value;   // 用于保存每个字段后面的的数据的指针
-    UINT8 *url_token = NULL; // 用于保存分割url时的子串
-    UINT8 *temp = NULL;
-    UINT8 host[128];
+    // 解析Host
+    token1 = strstr(l5, "Host:");
+    token2 = strstr(token1, "\r\n");
+    host = strstr(token1, " ");
+    while(*host == 32) host++;    // 去掉多余空格
+    host_len = token2 - host;
     
-    /* ================解析到fields_buffer================ */
+    // 解析path
+    token1 = strstr(l5, "GET ");
+    token2 = strstr(token1, " HTTP");
+    path = strstr(token1, " ");
+    while(*path == 32) path++;    // 去掉多余空格
+    path_len = token2 - path;
 
-    // 使用strtok函数以 \r\n标志 将header分成一行一行的子串
-    token = strtok(header, "\r\n"); // 获取到第一行子串
-    temp = token;   // 保存第一行字符供之后拼接URL使用
+    // 拼接url
+    snprintf(url, url_len, "%.*s%.*s", host_len, host, path_len, path);
 
-    while((token = strtok(NULL, "\r\n")) != NULL) {
-        value = strstr(token, " "); // 注意到每个字段后面都有一个空格，故通过空格提取出后面的内容
-
-        while(*value == 32) value++;    // 去掉多余空格
-
-        if(strncmp(token, "User-Agent:", strlen("User-Agent:")) == 0) {
-            *user_agent = value;    // 指针指向这个地址
-            *useragent_len = strlen(value);
-        }
-        if(strncmp(token, "Host:", strlen("Host:")) == 0) {
-            strncpy(host, value, strlen(value));
-        }
-    }
-
-    /* ================拼接URL================ */
-    url_token = strtok(temp, " ");  // 分割,提取子串
-    url_token = strtok(NULL, " ");
-    snprintf(url, url_len, "%s%s", host, url_token);
-    
-    free(dup);
-    
     return 1;
 }
-
-
 
 
 
@@ -117,9 +107,10 @@ int main()
     if(result == 1)
         printf("[Get results OK]\n\n");
     else
-        printf("[get_url_ua() failed with code %d]\n", result);
+        printf("[get_url_ua() failed with code %d]", result);
 
-    printf("%s\n%s\n%d\n", *user_agent, url, useragent_len);
+    printf("[User-Agent]\n%.*s\n", useragent_len, *user_agent);
+    printf("[URL]\n%s\n", url);
     // ---------------------------End parse------------------------------
 
     free(l5);
