@@ -1,0 +1,8 @@
+1. 运行环境
+python2.7
+
+2. 安装需要的package
+pip install scapy scapy-http
+
+3. 运行，程序会将抓到的User-Agent写入文件ua.txt
+python sniffer-ua.py -i <网卡名称>
